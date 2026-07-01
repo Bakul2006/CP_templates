@@ -8,12 +8,17 @@ using namespace std;
         if(visited[adj[node][j]] == 1)return 1;
         if(cycleDetect(adj[node][j],node,adj,visited))return 1;
     }
+    
     return 0;
  }
 bool isCycle(int v,vector<int>adj[]){
-  vector<bool>visited(v,0);                       //if cycle dtected then return 1 if it returns to the same node and not parent thn return 1else return 0; 
-  bool cycle = false;
-  return cycleDetect(0,-1,adj,visited);
+  vector<bool>visited(v,0);
+  for(int i=0;i<visited.size();i++){
+        if(visited[i]!= 1){
+            if(cycleDetect(i,-1,adj,visited))return 1;
+        }
+    }
+    return 0;
 }
 int main(){
 

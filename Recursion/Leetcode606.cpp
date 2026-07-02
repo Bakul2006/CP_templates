@@ -9,6 +9,7 @@ string treeTostr(Treenode * root){
   string result = to_string(root->val);
   string left =  treeTostr(root->left);
   string right = treeTostr(root->right);
+  if(root->right==NULL && root->left==NULL)return result;
    if(root->right==NULL)return result + "("+left+")";
   if(root->left==NULL)return result + "()"+ "(" + right + ")";
 

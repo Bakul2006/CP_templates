@@ -6,7 +6,7 @@ int solve(int n,int k){
     int mid;
     if(k<=n/2)
     return solve(n-1,k);
-else return !solve(n-1,k);
+else return !solve(n-1,k-(n)/2);
 }
 int main(){
     return 0;
